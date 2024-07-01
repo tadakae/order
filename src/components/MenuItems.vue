@@ -61,7 +61,7 @@
             <h4 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">{{ item.titlee }}</h4>
 
             <p class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">Итоговая сумма: {{ category.totalPrice }} тг</p>
-              <UsersList class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3" />
+              <UsersList :id="category.id" class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3" />
           </div>
         </div>
       </div>
