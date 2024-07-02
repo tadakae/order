@@ -53,16 +53,18 @@
 
   <div class="pt-24">
     <div v-for="category in menuData" :key="category.id">
-      <div v-for="item in category.items" :key="item.id" class="menu-item">
-        <div class="border w-80 mt-5 rounded-2xl ml-8 ">
-          <img class="border rounded-xl ml-10 w-56 mt-2" :src="item.imageUrl" alt="Menu Item Image"/>
-          <div class="ml-10 w-56 mb-10">
-            <h3 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">Номер заказа: {{ category.id }}</h3>
-            <h4 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">{{ item.titlee }}</h4>
-
-            <p class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">Итоговая сумма: {{ category.totalPrice }} тг</p>
-              <UsersList :id="category.id" class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3" />
+      <div class="border w-80 mb-5 rounded-2xl ml-8 flex flex-col items-center">
+        <div v-for="item in category.items" :key="item.id" class="menu-item h-auto">
+          <img class="border rounded-xl w-56 mt-2" :src="item.imageUrl" alt="Menu Item Image"/>
+          <div class="w-56 mb-3">
+              <h4 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">{{ item.titlee }}</h4>
           </div>
+        </div>
+        <span class="w-full h-[2px] bg-[#f3f4f6]"></span>
+        <div class="w-56 mt-3">
+          <h3 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl">Номер заказа: {{ category.id }}</h3>
+          <UsersList :id="category.id" class="p-1 pl-3 bg-gray-100 w-full mt-3 rounded-2xl" />
+          <p class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3 mb-5">Итоговая сумма: {{ category.totalPrice }} тг</p>
         </div>
       </div>
     </div>
