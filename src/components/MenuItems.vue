@@ -89,15 +89,7 @@ import UsersList from "@/components/UsersList.vue";
 
 export default {
   methods: {
-    sendNotification() {
-      axios.get('7440880704:AAHTSTCdj4JzlbuWvSYGVv_A5yGnZDAYHfM')
-          .then(response => {
-            console.log('Уведомление отправлено успешно');
-          })
-          .catch(error => {
-            console.error('Ошибка при отправке уведомления', error);
-          });
-    }
+
   },
   name: 'MenuItems',
   components: {UsersList},
