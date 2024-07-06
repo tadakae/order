@@ -49,23 +49,34 @@
 
     </header>
   </div>
-
-
-  <div class="pt-24">
+  <div class="pt-24 ">
     <div v-for="category in menuData" :key="category.id">
-      <div class="border w-80 mb-5 rounded-2xl ml-8 flex flex-col items-center">
-        <div v-for="item in category.items" :key="item.id" class="menu-item h-auto">
-          <img class="border rounded-xl w-56 mt-2" :src="item.imageUrl" alt="Menu Item Image"/>
-          <div class="w-56 mb-3">
-              <h4 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3">{{ item.titlee }}</h4>
+      <div class="border w-96 mb-5 bg-gray-100 rounded-2xl m-auto flex flex-col ">
+        <div class="bg-green-600 w-2/3 m-auto text-center text-white rounded-b-lg">
+          <h1>Заказ</h1>
+        </div>
+        <div class="mt-7 mb-4 font-bold">
+          <div v-for="item in category.items" :key="item.id" class="menu-item flex h-auto ml-3  ">
+
+
+            <div class="w-72 flex mt-3">
+              <div>
+                ({{item.quantity}})
+
+              </div>
+              <h4 class="   w-48   rounded-2xl ">"{{ item.titlee }}"</h4>
+
+            </div>
+            <img class="border  w-20 mr-5 mb-2  h-14 rounded-full " :src="item.imageUrl" alt="Menu Item Image"/>
           </div>
         </div>
         <span class="w-full h-[2px] bg-[#f3f4f6]"></span>
-        <div class="w-56 mt-3">
+        <div class="w-56 ">
           <h3 class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl">Номер заказа: {{ category.id }}</h3>
-          <UsersList :id="category.id" class="p-1 pl-3 bg-gray-100 w-full mt-3 rounded-2xl" />
-          <p class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mt-3 mb-5">Итоговая сумма: {{ category.totalPrice }} тг</p>
+          <UsersList :id="category.id" class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl"/>
+          <p class="p-1 pl-3 bg-gray-100 w-full  rounded-2xl mb-5">Итоговая сумма: {{ category.totalPrice }} тг</p>
         </div>
+
       </div>
     </div>
   </div>
@@ -77,6 +88,17 @@ import axios from 'axios';
 import UsersList from "@/components/UsersList.vue";
 
 export default {
+  methods: {
+    sendNotification() {
+      axios.get('7440880704:AAHTSTCdj4JzlbuWvSYGVv_A5yGnZDAYHfM')
+          .then(response => {
+            console.log('Уведомление отправлено успешно');
+          })
+          .catch(error => {
+            console.error('Ошибка при отправке уведомления', error);
+          });
+    }
+  },
   name: 'MenuItems',
   components: {UsersList},
   setup() {
@@ -98,6 +120,7 @@ export default {
     };
   }
 };
+
 </script>
 
 <style scoped>

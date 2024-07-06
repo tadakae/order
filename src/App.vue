@@ -1,7 +1,7 @@
 <!-- App.vue -->
 <template>
   <div id="app">
-    <MenuItems />
+    <MenuItems/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import MenuItems from './components/MenuItems.vue';
 export default {
   name: 'App',
   components: {
-    MenuItems
+    MenuItems,
   }
 };
 </script>
